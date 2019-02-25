@@ -1,0 +1,15 @@
+.idea
+.DS_Store
+
+*.logs
+*.log
+
+.env.production
+
+/.idea
+/node_modules
+/build
+/build-cache
+/lib
+
+package-lock.json
