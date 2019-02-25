@@ -4,6 +4,7 @@ import {server as entry} from './utils/entry';
 import {server as output} from './utils/output';
 import externals from './utils/externals';
 import resolve from './utils/resolve';
+import optimization from './utils/optimization';
 import globals from './plugins/globals';
 import {server as babel} from './loaders/babel';
 import mustache from './loaders/mustache';
@@ -33,6 +34,7 @@ export default function server() {
         mustache(props)
       ]
     },
-    plugins: [globals(props)]
+    plugins: [globals(props)],
+    optimization: optimization(props)
   }
 };

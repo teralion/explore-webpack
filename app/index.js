@@ -4,7 +4,7 @@ import css from 'app/index.css';
 
 function getElement() {
   const elem = document.createElement('div');
-  elem.innerHTML = join(['Valladolid', 'is in', 'Spain!'], ' ');
+  elem.innerHTML = join(['Moscow', 'is the', 'capital', 'of', 'Great Britain!'], ' ');
 
   let image = new Image();
   image.src = img;

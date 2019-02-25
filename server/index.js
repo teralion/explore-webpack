@@ -1,5 +1,4 @@
 import app from './server';
-import devServer from './devServer'
 
 const appMessage = () =>
   console.log(
@@ -15,6 +14,16 @@ const devServerMessage = () =>
     'Dev Server is running on ' + GLOBALS.DEV_SERVER_PORT + 'port'
   );
 
-GLOBALS.NODE_ENV && 
-GLOBALS.DEV_SERVER_PORT &&
-devServer.listen(GLOBALS.DEV_SERVER_PORT, devServerMessage);
+async function startDevServer() {
+  await import('./devServer').then(module => {
+    const devServer = module.default;
+    devServer.listen(GLOBALS.DEV_SERVER_PORT, devServerMessage);
+  });
+};
+
+if (
+  GLOBALS.NODE_ENV === 'development' &&
+  GLOBALS.DEV_SERVER_PORT 
+) {
+  startDevServer();
+}

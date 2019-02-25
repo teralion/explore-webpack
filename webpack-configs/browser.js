@@ -4,6 +4,7 @@ import {browser as entry} from './utils/entry';
 import {browser as output} from './utils/output';
 import externals from './utils/externals';
 import resolve from './utils/resolve';
+import optimization from './utils/optimization';
 import globals from './plugins/globals';
 import html from './plugins/html';
 import {hmr} from './plugins/webpack';
@@ -21,6 +22,12 @@ export default function browser() {
   const development = process.env.NODE_ENV === 'development';
   const production = !development;
   const props = {...config, production};
+
+  console.log('DEVELOPMENT:');
+  console.log(development);
+
+  console.log('PRODUCTION:');
+  console.log(production);
 
   return {
     mode: development ? 'development' : 'production',
@@ -41,6 +48,7 @@ export default function browser() {
       globals(props), 
       html(props),
       development ? hmr() : false
-    ].filter(Boolean)
+    ].filter(Boolean),
+    optimization: optimization(props)
   }
 };
