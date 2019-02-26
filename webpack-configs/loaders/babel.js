@@ -1,14 +1,20 @@
 
-function babelOptions(config = {}) {
-  const presets = ['@babel/preset-env'];
+function babelOptions() {
+  const presets = [
+    '@babel/preset-env',
+    '@babel/react'
+  ];
+
   const plugins = [
+    'add-module-exports',
     '@babel/plugin-proposal-object-rest-spread',
     '@babel/plugin-syntax-dynamic-import'
   ];
 
   return {
     presets,
-    plugins
+    plugins,
+    babelrc: false
   }
 };
 
@@ -17,25 +23,25 @@ const shared = {
   exclude: /node_modules(?!.+-es6)/
 };
 
-export function browser(config = {}) {
+export function browser() {
   return {
     ...shared,
     use: [
       {
         loader: 'babel-loader',
-        options: babelOptions(config)
+        options: babelOptions()
       }
     ]
   }
 };
 
-export function server(config = {}) {
+export function server() {
   return {
     ...shared,
     use: [
       {
         loader: 'babel-loader',
-        options: babelOptions(config)
+        options: babelOptions()
       }
     ]
   }

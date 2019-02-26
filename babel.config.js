@@ -12,7 +12,8 @@ module.exports = function(api) {
       "@babel/plugin-proposal-object-rest-spread",
       "@babel/plugin-proposal-class-properties",
       "@babel/plugin-syntax-dynamic-import",
-      "transform-export-extensions"
+      "transform-export-extensions",
+      "add-module-exports"
     ]
   }
 };

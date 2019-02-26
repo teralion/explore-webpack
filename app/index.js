@@ -1,17 +1,11 @@
-import join from 'lodash/join';
-import img from 'app/image.jpeg';
+import React from 'react';
+import ReactDOM from 'react-dom';
 import css from 'app/index.css';
 
-function getElement() {
-  const elem = document.createElement('div');
-  elem.innerHTML = join(['Moscow', 'is the', 'capital', 'of', 'Great Britain!'], ' ');
+const HelloWorld = () =>
+  <h1 className={css.elem}>Hello, world</h1>
 
-  let image = new Image();
-  image.src = img;
-  elem.appendChild(image);
-  elem.classList.add(css.elem);
-
-  return elem;
-}
-
-document.body.appendChild(getElement());
+ReactDOM.render(
+  <HelloWorld />,
+  document.getElementById('app')
+);
