@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import css from 'app/index.css';
 
-const HelloWorld = () =>
-  <h1 className={css.elem}>Hello, world</h1>
+import Router from 'app/routes';
+
+import css from 'app/styles/index.css';
 
 ReactDOM.render(
-  <HelloWorld />,
+  <Router />,
   document.getElementById('app')
 );

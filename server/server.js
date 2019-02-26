@@ -19,8 +19,9 @@ app.use(bodyParser);
 app.use(statics);
 app.use(favicon);
 
-router.get('/', all);
-router.get('/assets/*', filename, assets);
+router
+  .get('/assets/*', filename, assets)
+  .get('*', all)
 
 app.use(router.routes());
 

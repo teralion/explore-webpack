@@ -6,7 +6,6 @@ import request from 'request';
 async function getTemplates(ctx) {
  ctx.body = template.render({
     title: 'Hello, Server!',
-    scripts: `function sayHi() { console.log('${GLOBALS.SECRET}'); }; sayHi();`,
     supersecret: `SUPERSECRET IN CONSOLE`
   });
 };
