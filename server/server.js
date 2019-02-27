@@ -1,7 +1,7 @@
 import Koa from 'koa';
 import Router from 'koa-router';
 
-import {all, assets} from './routes';
+import { all, assets } from './routes';
 
 import errors from './handlers/errors';
 import logger from './handlers/logger';

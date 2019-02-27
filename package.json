@@ -13,7 +13,7 @@
     "prod": "NODE_ENV=production npm run build && npm run start",
     "start": "node ./build/server.js"
   },
-  "author": "db",
+  "author": "vjober@protonmail.com",
   "license": "WTFPL",
   "devDependencies": {
     "@babel/cli": "^7.2.3",
@@ -48,7 +48,6 @@
   },
   "dependencies": {
     "classnames": "^2.2.6",
-    "config": "^3.0.1",
     "connected-react-router": "^6.3.1",
     "dotenv": "^6.2.0",
     "history": "^4.7.2",
