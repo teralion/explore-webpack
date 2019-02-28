@@ -1,30 +1,56 @@
 import autoprefixer from 'autoprefixer';
 
-export default function(config = {}) {
+function common(config = {}) {
+  const {production} = config;
+
+  return [
+    {
+      loader: 'css-loader',
+      options: {
+        modules: true,
+        localIdentName: '[name]-[local]-[hash:base64:5]',
+        sourceMap: true
+      }
+    },
+    {
+      loader: 'postcss-loader',
+      options: {
+        sourceMap: production,
+        plugins() {return [autoprefixer]}
+      }
+    },
+    {
+      loader: 'stylus-loader',
+      options: {
+        sourceMap: production,
+        preferPathResolver: 'webpack'
+      }
+    }
+  ]
+}
+
+export function styl(config = {}) {
   const {production} = config;
 
   return {
-    test: /\.(css|styl)$/,
+    test: /\.styl$/,
     use: [
       {
         loader: 'style-loader',
-        options: {sourceMap: true},
-      },
-      {
-        loader: 'css-loader',
         options: {
-          modules: true,
-          localIdentName: '[name]-[local]-[hash:base64:5]',
           sourceMap: true
         }
       },
-      {
-        loader: 'postcss-loader',
-        options: {
-          sourceMap: production,
-          plugins() {return [autoprefixer]}
-        }
-      }
+      ...common(config)
     ]
   }
-};
+}
+
+export function css(config = {}) {
+  const {production} = config;
+
+  return {
+    test: /\.css$/,
+    use: [...common(config)]
+  }
+}

@@ -1,8 +1,8 @@
 import React from 'react';
-import css from 'app/styles/index.css';
+import styl from 'app/pages/HomePage/index.styl';
 
 export default function() {
   return (
-    <div className={css.elem}>Home Page is under construction</div>
+    <div className={styl.elem}>Home Page is under construction</div>
   );
 };
